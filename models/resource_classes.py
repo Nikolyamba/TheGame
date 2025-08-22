@@ -1,4 +1,4 @@
-from models.common_classes import Resource
+from importlib.resources import Resource
 
 class Wood(Resource):
     pass
