@@ -26,4 +26,4 @@ class MainMenu(UIView):
 
         @exit_button.event
         def on_click_exit(event):
-            arcade.close_window()
+            arcade.exit()

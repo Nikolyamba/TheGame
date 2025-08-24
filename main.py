@@ -1,7 +1,7 @@
 import arcade as arcade
 
-from TheGame.utils import get_screen_settings
-from TheGame.windows.main_menu_window import MainMenu
+from utils import get_screen_settings
+from windows.main_menu_window import MainMenu
 
 def main():
     """Запуск игры, создание меню игры"""

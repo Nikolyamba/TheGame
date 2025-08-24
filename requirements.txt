@@ -1,0 +1,2 @@
+arcade~=3.3.2
+screeninfo~=0.8.1
