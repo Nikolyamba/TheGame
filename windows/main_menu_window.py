@@ -16,7 +16,14 @@ class MainMenu(UIView):
 
         self.ui.add(UIAnchorLayout(children=[grid]))
 
-        grid.add(UIFlatButton(text="Начать игру", width=200), row=0, column=0)
+        exit_button = UIFlatButton(text="Выйти из игры", width=200)
+        start_button = UIFlatButton(text="Начать игру", width=200)
+
+        grid.add(start_button, row=0, column=0)
         grid.add(UIFlatButton(text="Загрузить игру", width=200), row=1, column=0)
         grid.add(UIFlatButton(text="Сохранить игру", width=200), row=2, column=0)
-        grid.add(UIFlatButton(text="Выйти из игры", width=200), row=3, column=0)
+        grid.add(exit_button, row=3, column=0)
+
+        @exit_button.event
+        def on_click_exit(event):
+            arcade.close_window()
