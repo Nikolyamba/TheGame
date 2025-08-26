@@ -1,14 +1,12 @@
 import arcade
-from arcade.gui import UIGridLayout, UIAnchorLayout, UIFlatButton, UIView, UIManager
+from arcade.gui import UIGridLayout, UIAnchorLayout, UIFlatButton, UIView
 
+from windows.game_window import GameWindow
 
 class MainMenu(UIView):
     def __init__(self):
         super().__init__()
         self.background_color = arcade.color.PINK
-
-        self.manager = UIManager()
-        self.manager.enable()
 
         grid = UIGridLayout(
             column_count=3,
@@ -18,7 +16,7 @@ class MainMenu(UIView):
             horizontal_spacing=10,
         )
 
-        self.manager.add(UIAnchorLayout(children=[grid]))
+        self.ui.add(UIAnchorLayout(children=[grid]))
 
         exit_button = UIFlatButton(text="Выйти из игры", width=200)
         start_button = UIFlatButton(text="Начать игру", width=200)
@@ -32,6 +30,7 @@ class MainMenu(UIView):
         def on_click_exit(event):
             arcade.exit()
 
-    def on_draw(self):
-        self.clear()
-        self.manager.draw()
+        @start_button.event("on_click")
+        def on_click_start(event):
+            self.game_window_settings = GameWindow()
+            self.window.show_view(self.game_window_settings)
