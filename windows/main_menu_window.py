@@ -32,5 +32,4 @@ class MainMenu(UIView):
 
         @start_button.event("on_click")
         def on_click_start(event):
-            self.game_window_settings = GameWindow()
-            self.window.show_view(self.game_window_settings)
+            self.window.show_view(GameWindow())

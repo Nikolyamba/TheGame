@@ -1,5 +1,6 @@
 from typing import Tuple
 
+import arcade
 from screeninfo import get_monitors
 
 def get_screen_settings() -> Tuple[int, int, str]:
