@@ -10,7 +10,6 @@ class Player(arcade.Sprite):
         self.window_height = get_screen_settings()[1]
 
     def update(self, delta_time: float = 1 / 60):
-        """ Движение игрока """
         self.center_x += self.change_x
         self.center_y += self.change_y
 

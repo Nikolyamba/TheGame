@@ -6,18 +6,20 @@ from models.player import Player
 class GameWindow(UIView):
     def __init__(self):
         super().__init__()
-        self.background_color = arcade.color.PINK
         self.player_list = None
         self.player_sprite = None
 
     def setup(self):
-
+        self.background_color = arcade.color.PINK
         self.player_list = arcade.SpriteList()
 
         self.player_sprite = Player()
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
+
+    def on_update(self, delta_time):
+        self.player_list.update(delta_time)
 
     def on_draw(self):
         self.clear()
