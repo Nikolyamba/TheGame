@@ -10,7 +10,7 @@ class GameWindow(UIView):
         self.player_sprite = None
 
     def setup(self):
-        self.background_color = arcade.color.PINK
+        self.background_color = arcade.color.WHITE
         self.player_list = arcade.SpriteList()
 
         self.player_sprite = Player()
@@ -31,15 +31,24 @@ class GameWindow(UIView):
             self.window.show_view(MainMenu())
         elif key == arcade.key.W:
             self.player_sprite.change_y = self.player_sprite.movement_speed
+            self.player_sprite.texture = self.player_sprite.textures_dict["up"]
         elif key == arcade.key.S:
             self.player_sprite.change_y = -self.player_sprite.movement_speed
+            self.player_sprite.texture = self.player_sprite.textures_dict["down"]
         elif key == arcade.key.A:
             self.player_sprite.change_x = -self.player_sprite.movement_speed
+            self.player_sprite.texture = self.player_sprite.textures_dict["left"]
         elif key == arcade.key.D:
             self.player_sprite.change_x = self.player_sprite.movement_speed
+            self.player_sprite.texture = self.player_sprite.textures_dict["right"]
+        elif key == arcade.key.LSHIFT:
+            if self.player_sprite.stamina >= 5:
+                self.player_sprite.is_running = True
 
     def on_key_release(self, key, modifiers):
         if key == arcade.key.W or key == arcade.key.S:
             self.player_sprite.change_y = 0
         elif key == arcade.key.A or key == arcade.key.D:
             self.player_sprite.change_x = 0
+        elif key == arcade.key.LSHIFT:
+            self.player_sprite.is_running = False
