@@ -3,7 +3,7 @@ import arcade
 from utils import get_screen_settings
 
 class Player(arcade.Sprite):
-    def __init__(self, image_path="sprites/forward.jpg", scale=0.5):
+    def __init__(self, image_path="sprites/back.jpg", scale=0.5):
         super().__init__(image_path, scale)
 
         self.move_speed = 5
@@ -15,8 +15,13 @@ class Player(arcade.Sprite):
         self.stamina_usage = 5
         self.is_running = False
 
+        self.wood_values = 0
+        self.metal_values = 0
+        self.food_values = 0
+        self.player_weight = 0
+
         self.textures_dict = {
-            "up": arcade.load_texture("sprites/forward.jpg"),
+            "up": arcade.load_texture("sprites/back.jpg"),
             "down": arcade.load_texture("sprites/back.jpg"),
             "left": arcade.load_texture("sprites/left.jpg"),
             "right": arcade.load_texture("sprites/right.jpg")
