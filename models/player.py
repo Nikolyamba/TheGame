@@ -40,7 +40,8 @@ class Player(arcade.Sprite):
             self.stamina -= self.stamina_usage * delta_time
             self.movement_speed = self.run_speed
         else:
-            self.stamina += self.stamina_recovery * delta_time
+            if self.stamina <= 100:
+                self.stamina += self.stamina_recovery * delta_time
             self.movement_speed = self.move_speed
 
         if self.left < 0:
