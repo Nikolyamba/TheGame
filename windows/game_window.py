@@ -2,6 +2,8 @@ import arcade
 from arcade.gui import UIView
 
 from models.player import Player
+from models.resource import Resource
+
 
 class GameWindow(UIView):
     def __init__(self):
@@ -12,11 +14,27 @@ class GameWindow(UIView):
     def setup(self):
         self.background_color = arcade.color.WHITE
         self.player_list = arcade.SpriteList()
+        self.resource_list = arcade.SpriteList()
 
         self.player_sprite = Player()
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 50
         self.player_list.append(self.player_sprite)
+
+        wood = Resource("sprites/wood.png", "wood")
+        wood.center_x = 200
+        wood.center_y = 300
+        self.resource_list.append(wood)
+
+        metal = Resource("sprites/metal.png", "metal")
+        metal.center_x = 400
+        metal.center_y = 300
+        self.resource_list.append(metal)
+
+        food = Resource("sprites/meat.png", "food")
+        food.center_x = 600
+        food.center_y = 300
+        self.resource_list.append(food)
 
     def on_update(self, delta_time):
         self.player_list.update(delta_time)
